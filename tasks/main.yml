@@ -1,0 +1,29 @@
+---
+#- name: Installing openjdk-11-jdk packages using apt
+#  become: true
+#  apt:
+#    pkg: "openjdk-11-jdk"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
+
+#- name: Installing openjdk-11-jdk packages using yum
+#  become: true
+#  yum:
+#    pkg: "openjdk-11-jdk"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+
+#- name: Installing openjdk-11-jdk packages using pacman
+#  pacman:
+#    name: "openjdk-11-jdk"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing openjdk-11-jdk packages
+  become: true
+  package:
+    name: "openjdk-11-jdk"
+    state: present
